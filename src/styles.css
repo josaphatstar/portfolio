@@ -637,9 +637,14 @@ label {
 	letter-spacing: 0.5px;
 }
 
+/* Light mode label contrast */
+html[data-theme="light"] label {
+	color: #475569;
+}
+
 input,
 textarea {
-	background: rgba(10, 10, 15, 0.6);
+	background: var(--bg-secondary);
 	border: 1px solid var(--glass-border);
 	border-radius: var(--radius-sm);
 	padding: 14px 18px;
@@ -650,11 +655,37 @@ textarea {
 	outline: none;
 }
 
+input::placeholder,
+textarea::placeholder {
+	color: var(--text-muted);
+	opacity: 0.6;
+}
+
 input:focus,
 textarea:focus {
 	border-color: var(--primary);
-	background: rgba(10, 10, 15, 0.8);
+	background: var(--bg-secondary);
 	box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Light mode specific form improvements */
+html[data-theme="light"] input,
+html[data-theme="light"] textarea {
+	background: #ffffff;
+	border-color: rgba(0, 0, 0, 0.12);
+	color: #0f172a;
+}
+
+html[data-theme="light"] input:focus,
+html[data-theme="light"] textarea:focus {
+	border-color: var(--primary);
+	background: #ffffff;
+	box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+	color: #64748b;
 }
 
 textarea {

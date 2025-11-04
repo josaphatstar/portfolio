@@ -37,7 +37,7 @@
                     <ul class="hero__badges" aria-label="Points clés">
                         <li class="chip">Disponible freelance</li>
                         <li class="chip">Vue · Python</li>
-                        <li class="chip">Remote/Togo-Lomé</li>
+                        <li class="chip">Remote/Lomé-Togo</li>
                     </ul>
                     <div class="hero__actions">
                         <a href="#projets" class="btn btn--primary"><Icon name="arrowRight" /> Voir mes projets</a>
