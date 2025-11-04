@@ -1,13 +1,30 @@
 <template>
     <div id="portfolio">
-		<nav class="topnav" role="navigation" aria-label="Navigation principale">
+        <nav class="topnav" role="navigation" aria-label="Navigation principale">
 			<div class="container topnav__inner">
 				<a href="#top" class="brand">Portfolio</a>
 				<div class="spacer"></div>
 				<ul class="menu">
 					<li><a href="#projets">Projets</a></li>
 					<li><a href="#competences">Compétences</a></li>
-					<li><a href="#contact" class="btn btn--sm btn--primary">Contact</a></li>
+                    <li>
+                        <button
+                            class="theme-switch"
+                            type="button"
+                            role="switch"
+                            :aria-checked="theme === 'dark'"
+                            @click="toggleTheme"
+                            :title="theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre'"
+                        >
+                            <span class="visually-hidden">Basculer le thème</span>
+                            <span class="switch__track" aria-hidden="true">
+                                <span class="switch__thumb">
+                                    <Icon :name="theme === 'dark' ? 'moon' : 'sun'" />
+                                </span>
+                            </span>
+                        </button>
+                    </li>
+                    <li><a href="#contact" class="btn btn--sm btn--primary">Contact</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -17,6 +34,11 @@
 				<div>
 					<h1 class="hero__title">Développeur Web & Data</h1>
 					<p class="hero__tagline">Je crée des solutions web & data sur mesure pour PME et projets innovants.</p>
+                    <ul class="hero__badges" aria-label="Points clés">
+                        <li class="chip">Disponible freelance</li>
+                        <li class="chip">Vue · Python</li>
+                        <li class="chip">Remote/Togo-Lomé</li>
+                    </ul>
                     <div class="hero__actions">
                         <a href="#projets" class="btn btn--primary"><Icon name="arrowRight" /> Voir mes projets</a>
                         <a href="#contact" class="btn btn--ghost"><Icon name="mail" /> Me contacter</a>
@@ -101,24 +123,42 @@
 
 		<footer class="footer">
 			<div class="container footer__content" data-reveal>
-				<a class="icon-link" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
-					<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.04 1.53 1.04.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05a9.24 9.24 0 0 1 5 0c1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .27.18.59.68.49A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg>
-				</a>
-				<a class="icon-link" href="mailto:contact@example.com" aria-label="Email">
-					<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5Z"/></svg>
-				</a>
-				<a class="icon-link" href="#top" aria-label="Haut de page">↑</a>
+				<div class="footer__brand">Portfolio</div>
+				<ul class="social">
+					<li><a class="icon-link" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><Icon name="github" /> GitHub</a></li>
+					<li><a class="icon-link" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><Icon name="linkedin" /> LinkedIn</a></li>
+					<li><a class="icon-link" href="mailto:contact@example.com" aria-label="Email"><Icon name="mail" /> Email</a></li>
+					<li><a class="icon-link" href="/cv.pdf" target="_blank" rel="noopener" aria-label="CV"><Icon name="external" /> CV</a></li>
+				</ul>
+				<div class="footer__meta">
+					<span>© {{ new Date().getFullYear() }} • Fait avec Vue & Vite</span>
+					<a class="to-top" href="#top" aria-label="Haut de page">Haut <Icon name="arrowRight" /></a>
+				</div>
 			</div>
 		</footer>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted, ref, watch } from 'vue';
 import ProjectCard from './components/ProjectCard.vue';
 import Icon from './components/Icon.vue';
 
 const form = reactive({ name: '', email: '', message: '' });
+const theme = ref<'light' | 'dark'>('dark');
+
+function applyTheme(t: 'light' | 'dark') {
+    document.documentElement.setAttribute('data-theme', t);
+}
+
+function toggleTheme() {
+    theme.value = theme.value === 'dark' ? 'light' : 'dark';
+}
+
+watch(theme, (t) => {
+    applyTheme(t);
+    try { localStorage.setItem('theme', t); } catch {}
+});
 
 function submitForm() {
 	const mailto = `mailto:contact@example.com?subject=Contact%20Portfolio%20-%20${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message + '\n\n' + form.email)}`;
@@ -126,6 +166,21 @@ function submitForm() {
 }
 
 onMounted(() => {
+    // Init theme from storage or system
+    try {
+        const saved = localStorage.getItem('theme') as 'light' | 'dark' | null;
+        if (saved) {
+            theme.value = saved;
+        } else {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            theme.value = prefersDark ? 'dark' : 'light';
+        }
+    } catch {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        theme.value = prefersDark ? 'dark' : 'light';
+    }
+    applyTheme(theme.value);
+
 	// Smooth scroll reveal with stagger
 	const items = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
 	const reveal = (entry: IntersectionObserverEntry) => {
