@@ -36,11 +36,7 @@
 					<p class="hero__tagline">Je crée des solutions web & data sur mesure pour PME et projets innovants.</p>
                     <ul class="hero__badges" aria-label="Points clés">
                         <li class="chip">Disponible freelance</li>
-<<<<<<< HEAD
-                    <li class="chip">Vue JS · Python</li>
-=======
-                        <li class="chip">Vue · Python</li>
->>>>>>> 76232df502ac1d3819bace8791207a30c9ebad2b
+                    		<li class="chip">Vue JS · Python</li>
                         <li class="chip">Remote/Lomé-Togo</li>
                     </ul>
                     <div class="hero__actions">
