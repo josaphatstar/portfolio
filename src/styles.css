@@ -55,6 +55,13 @@ html[data-theme="light"] .hero::after { background: radial-gradient(circle, rgba
 html[data-theme="light"] .hero::before { background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, transparent 70%); }
 html[data-theme="light"] .chip { background: rgba(0,0,0,0.04); }
 
+html[data-theme="light"] .hero__title {
+    background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 /* Light mode form contrast fix */
 html[data-theme="light"] input,
 html[data-theme="light"] textarea {
@@ -370,8 +377,6 @@ body::before {
 	width: 220px;
 	height: 220px;
 	border-radius: 50%;
-	border: 4px solid;
-	border-image: var(--gradient-primary) 1;
 	box-shadow: var(--shadow-glow);
 	background: var(--bg-secondary);
 	object-fit: cover;
