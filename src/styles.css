@@ -662,6 +662,11 @@ label {
 	letter-spacing: 0.5px;
 }
 
+/* Light mode label contrast */
+html[data-theme="light"] label {
+	color: #475569;
+}
+
 input,
 textarea {
 	background: var(--bg-secondary);
@@ -675,10 +680,18 @@ textarea {
 	outline: none;
 }
 
+	opacity: 0.6;
+>>>>>>> 76232df502ac1d3819bace8791207a30c9ebad2b
+}
+=======
 input::placeholder,
 textarea::placeholder {
 	color: var(--text-muted);
 	opacity: 0.7;
+}
+=======
+	opacity: 0.6;
+>>>>>>> 76232df502ac1d3819bace8791207a30c9ebad2b
 }
 
 input:focus,
@@ -686,6 +699,26 @@ textarea:focus {
 	border-color: var(--primary);
 	background: var(--bg-secondary);
 	box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Light mode specific form improvements */
+html[data-theme="light"] input,
+html[data-theme="light"] textarea {
+	background: #ffffff;
+	border-color: rgba(0, 0, 0, 0.12);
+	color: #0f172a;
+}
+
+html[data-theme="light"] input:focus,
+html[data-theme="light"] textarea:focus {
+	border-color: var(--primary);
+	background: #ffffff;
+	box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+	color: #64748b;
 }
 
 textarea {
