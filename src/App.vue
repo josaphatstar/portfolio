@@ -30,10 +30,13 @@
 		</nav>
 		<header class="hero section" id="top">
 			<div class="container hero__content" data-reveal>
-				<img class="hero__avatar" src="/profile.jpeg" alt="Photo de profil" />
+				<div class="hero__profile">
+					<img class="hero__avatar" src="/profile.jpeg" alt="Photo de profil de TAGBA Gracia-Josaphat Ewazam" />
+					<h2 class="hero__name">TAGBA Gracia-Josaphat Ewazam</h2>
+				</div>
 				<div>
 					<h1 class="hero__title">Développeur Web & Data</h1>
-					<p class="hero__tagline">Je crée des solutions web & data sur mesure pour PME et projets innovants.</p>
+					<p class="hero__tagline">Développeur web passionné, spécialisé dans les solutions pour PME. Contactez-moi pour un prototype gratuit</p>
                     <ul class="hero__badges" aria-label="Points clés">
                         <li class="chip">Disponible freelance</li>
                     		<li class="chip">Vue JS · Python</li>
@@ -125,13 +128,13 @@
 			<div class="container footer__content" data-reveal>
 				<div class="footer__brand">Portfolio</div>
 				<ul class="social">
-					<li><a class="icon-link" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><Icon name="github" /> GitHub</a></li>
+					<li><a class="icon-link" href="https://github.com/josaphatstar/" target="_blank" rel="noopener" aria-label="GitHub"><Icon name="github" /> GitHub</a></li>
 					<li><a class="icon-link" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><Icon name="linkedin" /> LinkedIn</a></li>
-					<li><a class="icon-link" href="mailto:contact@example.com" aria-label="Email"><Icon name="mail" /> Email</a></li>
+					<li><a class="icon-link" href="mailto:josaphattagba@gmail.com" aria-label="Email"><Icon name="mail" /> Email</a></li>
 					<li><a class="icon-link" href="/cv.pdf" target="_blank" rel="noopener" aria-label="CV"><Icon name="external" /> CV</a></li>
 				</ul>
 				<div class="footer__meta">
-					<span>© {{ new Date().getFullYear() }} • Fait avec Vue & Vite</span>
+					<span>© TAGBA Gracia-Josaphat Ewazam - 2025</span>
 					<a class="to-top" href="#top" aria-label="Haut de page">Haut <Icon name="arrowRight" /></a>
 				</div>
 			</div>
