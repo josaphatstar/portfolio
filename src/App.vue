@@ -105,18 +105,23 @@
 			<div class="container" data-reveal>
 				<h2 class="section__title">Contact</h2>
 				<p class="section__subtitle">Discutons de votre projet ou d'une collaboration.</p>
-				<form class="contact" @submit.prevent="submitForm">
+				<form class="contact" action="https://api.web3forms.com/submit" method="POST" @submit="handleSubmit">
+					<input type="hidden" name="access_key" value="48318e11-5750-47b0-8cfd-e5cbac9c48a2" />
+					<input type="hidden" name="subject" value="From Portfolio" />
+					<input type="hidden" name="from_name" value="Portfolio Contact" />
+					<input type="hidden" name="redirect" value="false" />
+					<input type="hidden" name="replyto" value="" />
 					<div class="field">
 						<label for="name">Nom</label>
-						<input id="name" v-model="form.name" type="text" placeholder="Votre nom" required />
+						<input id="name" name="name" v-model="form.name" type="text" placeholder="Votre nom" required />
 					</div>
 					<div class="field">
 						<label for="email">Email</label>
-						<input id="email" v-model="form.email" type="email" placeholder="vous@exemple.com" required />
+						<input id="email" name="email" v-model="form.email" type="email" placeholder="vous@exemple.com" required />
 					</div>
 					<div class="field">
 						<label for="message">Message</label>
-						<textarea id="message" v-model="form.message" rows="5" placeholder="Parlez-moi de votre projet" required />
+						<textarea id="message" name="message" v-model="form.message" rows="8" placeholder="Parlez-moi de votre projet" required></textarea>
 					</div>
                     <button class="btn btn--primary" type="submit"><Icon name="mail" /> Envoyer</button>
 				</form>
@@ -130,7 +135,6 @@
 				<ul class="social">
 					<li><a class="icon-link" href="https://github.com/josaphatstar/" target="_blank" rel="noopener" aria-label="GitHub"><Icon name="github" /> GitHub</a></li>
 					<li><a class="icon-link" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><Icon name="linkedin" /> LinkedIn</a></li>
-					<li><a class="icon-link" href="mailto:josaphattagba@gmail.com" aria-label="Email"><Icon name="mail" /> Email</a></li>
 					<li><a class="icon-link" href="/cv.pdf" target="_blank" rel="noopener" aria-label="CV"><Icon name="external" /> CV</a></li>
 				</ul>
 				<div class="footer__meta">
@@ -163,9 +167,31 @@ watch(theme, (t) => {
     try { localStorage.setItem('theme', t); } catch {}
 });
 
-function submitForm() {
-	const mailto = `mailto:contact@example.com?subject=Contact%20Portfolio%20-%20${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message + '\n\n' + form.email)}`;
-	window.location.href = mailto;
+function handleSubmit(event: Event) {
+	const formElement = event.target as HTMLFormElement;
+	const formData = new FormData(formElement);
+
+	fetch('https://api.web3forms.com/submit', {
+		method: 'POST',
+		body: formData
+	})
+	.then(response => response.json())
+	.then(data => {
+		if (data.success) {
+			alert('Message envoyé avec succès !');
+			form.name = '';
+			form.email = '';
+			form.message = '';
+		} else {
+			alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+		}
+	})
+	.catch(error => {
+		console.error('Erreur:', error);
+		alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+	});
+
+	event.preventDefault();
 }
 
 onMounted(() => {
