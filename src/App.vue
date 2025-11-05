@@ -32,7 +32,7 @@
 			<div class="container hero__content" data-reveal>
 				<div class="hero__profile">
 					<img class="hero__avatar" src="/profile.jpeg" alt="Photo de profil de TAGBA Gracia-Josaphat Ewazam" />
-					<h2 class="hero__name">TAGBA Gracia-Josaphat Ewazam</h2>
+					<h3 class="hero__name">TAGBA Gracia-Josaphat Ewazam</h3>
 				</div>
 				<div>
 					<h1 class="hero__title">Développeur Web & Data</h1>
