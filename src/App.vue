@@ -30,14 +30,14 @@
 		</nav>
 		<header class="hero section" id="top">
 			<div class="container hero__content" data-reveal>
-				<img class="hero__avatar" src="/profile-placeholder.svg" alt="Photo de profil" />
+				<img class="hero__avatar" src="/profile.jpeg" alt="Photo de profil" />
 				<div>
 					<h1 class="hero__title">Développeur Web & Data</h1>
 					<p class="hero__tagline">Je crée des solutions web & data sur mesure pour PME et projets innovants.</p>
                     <ul class="hero__badges" aria-label="Points clés">
                         <li class="chip">Disponible freelance</li>
-                        <li class="chip">Vue · Python</li>
-                        <li class="chip">Remote/Togo-Lomé</li>
+                    <li class="chip">Vue JS · Python</li>
+                        <li class="chip">Remote/Lomé-Togo</li>
                     </ul>
                     <div class="hero__actions">
                         <a href="#projets" class="btn btn--primary"><Icon name="arrowRight" /> Voir mes projets</a>
@@ -86,14 +86,14 @@
                 <h2 class="section__title">Compétences</h2>
                 <p class="section__subtitle">Stack moderne pour livrer vite, proprement et durablement.</p>
                 <ul class="skills">
-                    <li class="skill with-icon" data-reveal-child><Icon name="python" size="sm" /> Python</li>
-                    <li class="skill with-icon" data-reveal-child><Icon name="js" size="sm" /> JavaScript</li>
-                    <li class="skill with-icon" data-reveal-child><Icon name="vue" size="sm" /> Vue</li>
-                    <li class="skill with-icon" data-reveal-child><Icon name="html" size="sm" /> HTML</li>
-                    <li class="skill with-icon" data-reveal-child><Icon name="css" size="sm" /> CSS</li>
-                    <li class="skill with-icon" data-reveal-child><Icon name="figma" size="sm" /> Figma</li>
-                    <li class="skill with-icon" data-reveal-child><Icon name="ml" size="sm" /> Machine Learning</li>
-                    <li class="skill with-icon" data-reveal-child><Icon name="ai" size="sm" /> AI</li>
+                    <li class="skill with-icon" data-reveal-child><font-awesome-icon :icon="['fab', 'python']" size="lg" :style="{ color: '#3776AB' }" /> Python</li>
+                    <li class="skill with-icon" data-reveal-child><font-awesome-icon :icon="['fab', 'js']" size="lg" :style="{ color: '#F7DF1E' }" /> JavaScript</li>
+                    <li class="skill with-icon" data-reveal-child><font-awesome-icon :icon="['fab', 'vuejs']" size="lg" :style="{ color: '#4FC08D' }" /> Vue JS</li>
+                    <li class="skill with-icon" data-reveal-child><font-awesome-icon :icon="['fab', 'html5']" size="lg" :style="{ color: '#E34F26' }" /> HTML</li>
+                    <li class="skill with-icon" data-reveal-child><font-awesome-icon :icon="['fab', 'css3-alt']" size="lg" :style="{ color: '#1572B6' }" /> CSS</li>
+                    <li class="skill with-icon" data-reveal-child><font-awesome-icon :icon="['fab', 'figma']" size="lg" :style="{ color: '#F24E1E' }" /> Figma</li>
+                    <li class="skill with-icon" data-reveal-child><font-awesome-icon :icon="['fas', 'brain']" size="lg" :style="{ color: '#6366f1' }" /> Machine Learning</li>
+                    <li class="skill with-icon" data-reveal-child><font-awesome-icon :icon="['fas', 'robot']" size="lg" :style="{ color: '#6366f1' }" /> AI</li>
                 </ul>
 			</div>
 		</section>
