@@ -1,5 +1,5 @@
 <template>
-	<article class="project" @mouseenter="hovered = true" @mouseleave="hovered = false">
+	<article class="project" :class="{ 'is-hovered': hovered }" @mouseenter="hovered = true" @mouseleave="hovered = false">
 		<div class="project__visual">
 			<img :src="visual" :alt="`Visuel pour ${title}`" />
 			<a class="project__link" :class="{ 'is-visible': hovered }" :href="link" target="_blank" rel="noopener">
@@ -51,17 +51,17 @@ const hovered = ref(false);
 </script>
 
 <style scoped>
-.project:hover {
+.project.is-hovered {
 	transform: translateY(-8px) scale(1.02);
 	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 	border-color: rgba(99, 102, 241, 0.5);
 }
 
-.project:hover::before {
+.project.is-hovered::before {
 	opacity: 1;
 }
 
-.project:hover .project__visual img {
+.project.is-hovered .project__visual img {
 	transform: scale(1.1);
 }
 
