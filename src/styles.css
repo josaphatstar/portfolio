@@ -476,15 +476,6 @@ body::before {
 	transition: opacity 0.3s;
 }
 
-.project:hover {
-	transform: translateY(-8px) scale(1.02);
-	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-	border-color: rgba(99, 102, 241, 0.5);
-}
-
-.project:hover::before {
-	opacity: 1;
-}
 
 .project__visual {
 	position: relative;
@@ -503,9 +494,6 @@ body::before {
 	transition: transform 0.4s;
 }
 
-.project:hover .project__visual img {
-	transform: scale(1.1);
-}
 
 .project__link {
 	position: absolute;
@@ -594,7 +582,14 @@ body::before {
 	backdrop-filter: blur(10px);
 }
 
-/* Skills - Modern Grid */
+/* Skills Grid - Modern Cards */
+.skills-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+	gap: 32px;
+}
+
+/* Legacy skills styles (kept for backward compatibility) */
 .skills {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

@@ -62,7 +62,9 @@
 						description="PME: besoin de visibilité. J'ai conçu un dashboard clair unifiant ventes et stock pour des décisions rapides."
 						link="https://example.com/dashboard"
                         :tech="['Vue', 'TypeScript', 'Chart.js', 'API REST']"
-                        impact="-40% temps d'analyse • +décisions rapides"
+						problem="PME sans visibilité sur leurs données de vente et stock"
+						solution="Dashboard clair unifiant ventes et stock pour des décisions rapides"
+                        impact="-40% temps d'analyse, décisions data-driven"
 					/>
 					<ProjectCard
 						:visual="'/visuals/etl-mock.svg'"
@@ -70,7 +72,9 @@
 						description="Données dispersées. J'ai automatisé l'extraction et le nettoyage pour un reporting fiable quotidien."
 						link="https://example.com/etl"
                         :tech="['Python', 'Pandas', 'Airflow', 'PostgreSQL']"
-                        impact="-70% tâches manuelles • SLA 99,9%"
+						problem="Données dispersées dans plusieurs sources, traitement manuel"
+						solution="Pipeline ETL automatisé avec orchestration Airflow pour reporting quotidien"
+                        impact="-70% tâches manuelles, SLA 99,9%, données fiables"
 					/>
 					<ProjectCard
 						:visual="'/visuals/ux-mock.svg'"
@@ -78,7 +82,9 @@
 						description="Taux de conversion faible. Nouvelle IA de navigation + design Figma → +28% de leads."
 						link="https://example.com/ux"
                         :tech="['Figma', 'HTML', 'CSS', 'Vue']"
-                        impact="+28% leads • +20% temps sur page"
+						problem="Taux de conversion faible, navigation confuse"
+						solution="Nouvelle architecture d'information + design Figma moderne et intuitif"
+                        impact="+28% leads qualifiés, +20% temps sur page"
 					/>
 				</div>
 			</div>
