@@ -39,7 +39,7 @@
 					<p class="hero__tagline">Développeur web passionné, spécialisé dans les solutions pour PME. Contactez-moi pour un prototype gratuit</p>
                     <ul class="hero__badges" aria-label="Points clés">
                         <li class="chip">Disponible freelance</li>
-                    		<li class="chip">Vue JS · Python</li>
+                    		<!-- <li class="chip">Vue JS · Python</li> -->
                         <li class="chip">Remote/Lomé-Togo</li>
                     </ul>
                     <div class="hero__actions">
