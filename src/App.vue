@@ -31,7 +31,7 @@
 					:class="{ 'hamburger--open': menuOpen }"
 					@click="menuOpen = !menuOpen"
 					aria-label="Ouvrir le menu"
-					aria-expanded="menuOpen"
+					:aria-expanded="menuOpen"
 				>
 					<span class="hamburger__line"></span>
 					<span class="hamburger__line"></span>
