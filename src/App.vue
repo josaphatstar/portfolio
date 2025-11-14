@@ -4,9 +4,9 @@
 			<div class="container topnav__inner">
 				<a href="#top" class="brand">Portfolio</a>
 				<div class="spacer"></div>
-				<ul class="menu">
-					<li><a href="#projets">Projets</a></li>
-					<li><a href="#competences">Compétences</a></li>
+				<ul class="menu" :class="{ 'menu--open': menuOpen }">
+					<li><a href="#projets" @click="menuOpen = false">Projets</a></li>
+					<li><a href="#competences" @click="menuOpen = false">Compétences</a></li>
                     <li>
                         <button
                             class="theme-switch"
@@ -24,8 +24,19 @@
                             </span>
                         </button>
                     </li>
-                    <li><a href="#contact" class="btn btn--sm btn--primary">Contact</a></li>
+                    <li><a href="#contact" class="btn btn--sm btn--primary" @click="menuOpen = false">Contact</a></li>
 				</ul>
+				<button
+					class="hamburger"
+					:class="{ 'hamburger--open': menuOpen }"
+					@click="menuOpen = !menuOpen"
+					aria-label="Ouvrir le menu"
+					aria-expanded="menuOpen"
+				>
+					<span class="hamburger__line"></span>
+					<span class="hamburger__line"></span>
+					<span class="hamburger__line"></span>
+				</button>
 			</div>
 		</nav>
 		<header class="hero section" id="top">
@@ -159,6 +170,7 @@ import Icon from './components/Icon.vue';
 
 const form = reactive({ name: '', email: '', message: '' });
 const theme = ref<'light' | 'dark'>('dark');
+const menuOpen = ref(false);
 
 function applyTheme(t: 'light' | 'dark') {
     document.documentElement.setAttribute('data-theme', t);
